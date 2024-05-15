@@ -16,19 +16,6 @@ pipeline {
             }
         }
 
-        stage('Package') {
-            steps {
-                echo 'Starting Package Stage'
-                // Package the build output into a WAR file
-                bat '''
-                mkdir dist
-                xcopy /E /I dist\\your-angular-project\\* dist\\
-                cd dist
-                jar -cvf ROOT.war *
-                '''
-                echo 'Package Stage Completed'
-            }
-        }
 
         stage('Deploy') {
             steps {
